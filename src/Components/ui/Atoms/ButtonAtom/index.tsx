@@ -12,7 +12,7 @@ import {
   space,
   variant,
 } from 'styled-system';
-import {ButtonBoxType} from './interface';
+import {ButtonAtomType} from './interface';
 
 const ButtonStyled = styled.TouchableOpacity`
   margin: 0;
@@ -21,6 +21,6 @@ const ButtonStyled = styled.TouchableOpacity`
   ${compose(color, space, flexbox, position, layout, shadow, grid, border)};
 `;
 
-export const ButtonAtom: React.FunctionComponent<ButtonBoxType> = (props) => (
+export const ButtonAtom: React.FunctionComponent<ButtonAtomType> = (props) => (
   <ButtonStyled {...props} />
 );

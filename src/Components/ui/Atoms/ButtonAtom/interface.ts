@@ -31,6 +31,6 @@ interface IStyled
   variant?: ResponsiveValue<string>;
 }
 
-export interface ButtonBoxType
+export interface ButtonAtomType
   extends IStyled,
     Omit<TouchableOpacityProps, keyof IStyled> {}
