@@ -1,3 +1,4 @@
-import AuthContainer from './AuthContainer';
+import LogInContainer from './LogInContainer';
+import RegisterContainer from './RegisterContainer';
 
-export {AuthContainer};
+export {LogInContainer, RegisterContainer};

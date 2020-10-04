@@ -20,6 +20,9 @@
 		A8F2DC0F74627AEE4D73F690 /* libPods-FastBank-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B91BDBE17E8D97D6B299AB2 /* libPods-FastBank-tvOSTests.a */; };
 		CE665F40D5E4EFCE62068965 /* libPods-FastBank.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1CB67A49122B1C195D8BA6 /* libPods-FastBank.a */; };
 		D48437862508589210FAEC52 /* libPods-FastBank-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C8C6B86C9CC5FECAE855C64 /* libPods-FastBank-tvOS.a */; };
+		FBE9C1132FE84A64B06B6ABE /* Asap-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 032716455D094D78BBA31BBE /* Asap-Bold.ttf */; };
+		BD1694FD89A4448F894E0004 /* Asap-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23FAC6A2E360494BAF0B9752 /* Asap-Regular.ttf */; };
+		8C16D0EBD37B4513ACCBCAA6 /* Asap-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCB6DD6C09D14B3CA0B053C6 /* Asap-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		E68DA9656CF70F82AAEF44D6 /* Pods-FastBank-FastBankTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastBank-FastBankTests.release.xcconfig"; path = "Target Support Files/Pods-FastBank-FastBankTests/Pods-FastBank-FastBankTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		032716455D094D78BBA31BBE /* Asap-Bold.ttf */ = {isa = PBXFileReference; name = "Asap-Bold.ttf"; path = "../assets/fonts/Asap-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		23FAC6A2E360494BAF0B9752 /* Asap-Regular.ttf */ = {isa = PBXFileReference; name = "Asap-Regular.ttf"; path = "../assets/fonts/Asap-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BCB6DD6C09D14B3CA0B053C6 /* Asap-SemiBold.ttf */ = {isa = PBXFileReference; name = "Asap-SemiBold.ttf"; path = "../assets/fonts/Asap-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				E15671FA45AAC100C230082F /* Pods */,
+				C844C10AC8C8484FB357E020 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -194,9 +201,19 @@
 				AEA17A75DAF7895DA0B3EBCF /* Pods-FastBank-tvOSTests.debug.xcconfig */,
 				002C0FADAA12F8EFC4B300C8 /* Pods-FastBank-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		C844C10AC8C8484FB357E020 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				032716455D094D78BBA31BBE /* Asap-Bold.ttf */,
+				23FAC6A2E360494BAF0B9752 /* Asap-Regular.ttf */,
+				BCB6DD6C09D14B3CA0B053C6 /* Asap-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -294,6 +311,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 2HJM5RFN7N;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -342,6 +360,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				FBE9C1132FE84A64B06B6ABE /* Asap-Bold.ttf in Resources */,
+				BD1694FD89A4448F894E0004 /* Asap-Regular.ttf in Resources */,
+				8C16D0EBD37B4513ACCBCAA6 /* Asap-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +677,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2HJM5RFN7N;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FastBank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -679,6 +701,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2HJM5RFN7N;
 				INFOPLIST_FILE = FastBank/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (

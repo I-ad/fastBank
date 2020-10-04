@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {BellIcon} from './Icons';
+import {BellIcon, EmailIcon, PasswordIcon, PhoneIcon} from './Icons';
 
 interface IconType {
   width?: number | string;
@@ -39,4 +39,7 @@ class Icons {
 const IconsBucket = new Icons();
 
 IconsBucket.addIcon('BellIcon', BellIcon);
+IconsBucket.addIcon('EmailIcon', EmailIcon);
+IconsBucket.addIcon('PasswordIcon', PasswordIcon);
+IconsBucket.addIcon('PhoneIcon', PhoneIcon);
 export default IconsBucket;
