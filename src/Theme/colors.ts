@@ -1,39 +1,47 @@
 import {ColorsType} from './interfaces';
 
 const allColors = {
-  '#4662EB': '#4662EB',
-  '#1B2B36': '#1B2B36',
-  '#36434D': '#36434D',
-  '#667480': '#667480',
-  '#8D9AA6': '#8D9AA6',
-  '#C7D2D9': '#C7D2D9',
-  '#FFFFFF': '#FFFFFF',
-  '#EE5C52': '#EE5C52',
+  royalBlue: '#4662EB',
+  mirage: '#1B2B36',
+  limedSpruce: '#36434D',
+  paleSky: '#667480',
+  regentGray: '#8D9AA6',
+  loblolly: '#B6C0C7',
+  white: '#FFFFFF',
+  burntSienna: '#EE5C52',
+  alto: '#D3D3D3',
+  porcelain: '#EAEEEF',
+  mountainMeadow: '#21B771',
+  catskillWhite: '#F7F9FB',
 };
 
 const primaries = {
-  primaryFirst: allColors['#4662EB'],
+  primaryFirst: allColors.royalBlue,
 };
 
 const texts = {
-  textFirst: allColors['#1B2B36'],
-  textSecond: allColors['#36434D'],
-  textThird: allColors['#667480'],
-  textFourth: allColors['#8D9AA6'],
-  textFifth: allColors['#C7D2D9'],
-  textSixth: allColors['#FFFFFF'],
+  textFirst: allColors.mirage,
+  textSecond: allColors.limedSpruce,
+  textThird: allColors.paleSky,
+  textFourth: allColors.regentGray,
+  textFifth: allColors.loblolly,
+  textSixth: allColors.white,
 };
 
 const backgrounds = {
-  backgroundFirst: allColors['#FFFFFF'],
+  backgroundFirst: allColors.white,
+  backgroundSecond: allColors.porcelain,
+  backgroundThird: allColors.catskillWhite,
 };
 
 export const colors: ColorsType = {
   ...primaries,
   ...texts,
   ...backgrounds,
-  borderFirst: allColors['#C7D2D9'],
-  focus: allColors['#4662EB'],
-  iconFirst: allColors['#C7D2D9'],
-  danger: allColors['#EE5C52'],
+  borderFirst: allColors.loblolly,
+  focus: allColors.royalBlue,
+  iconFirst: allColors.loblolly,
+  danger: allColors.burntSienna,
+  success: allColors.mountainMeadow,
+  disabled: allColors.alto,
 };

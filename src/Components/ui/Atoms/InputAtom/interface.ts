@@ -1,3 +1,4 @@
+import {RefAttributes} from 'react';
 import {TextInputProps} from 'react-native';
 import {
   BorderProps,
@@ -13,6 +14,7 @@ import {Omit} from '../../types/common';
 
 interface IStyled
   extends BorderProps,
+    RefAttributes<TextInputProps>,
     ColorProps,
     FlexboxProps,
     LayoutProps,

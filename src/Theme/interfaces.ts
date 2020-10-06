@@ -43,8 +43,12 @@ export interface ColorsType {
   textFifth: string;
   textSixth: string;
   backgroundFirst: string;
+  backgroundSecond: string;
+  backgroundThird: string;
   borderFirst: string;
   focus: string;
   iconFirst: string;
   danger: string;
+  success: string;
+  disabled: string;
 }

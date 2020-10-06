@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
+import {TextInputProps} from 'react-native';
 import styled from 'styled-components/native';
 import {InputAtomType} from './interface';
 import {
@@ -13,7 +14,11 @@ import {
   variant,
 } from 'styled-system';
 
-export const InputAtom: React.FunctionComponent<InputAtomType> = styled.TextInput`
+const InputStyled: any = styled.TextInput`
   ${variant({prop: 'variant', key: 'forms'})}
   ${compose(border, color, space, layout, flexbox, position, shadow)};
 `;
+
+export const InputAtom = forwardRef<TextInputProps, InputAtomType>(
+  (props, ref) => <InputStyled ref={ref} {...props} />,
+);

@@ -2,6 +2,12 @@ import React, {useState} from 'react';
 import {Dimensions, ScrollView, SafeAreaView} from 'react-native';
 import {BoxAtom} from './ui/Atoms/BoxAtom';
 
+const style = {
+  saveArea: {
+    flex: 1,
+  },
+};
+
 const ScrollViewWrapper: React.FC = ({children}) => {
   const [isScrollable, setIsScrollable] = useState(false);
 
@@ -16,9 +22,9 @@ const ScrollViewWrapper: React.FC = ({children}) => {
         pt={40}
         bg="backgroundFirst"
         flex={1}
-        pb={60}
+        pb={64}
         minHeight={Dimensions.get('window').height}>
-        <SafeAreaView style={{flex: 1}}>{children}</SafeAreaView>
+        <SafeAreaView style={style.saveArea}>{children}</SafeAreaView>
       </BoxAtom>
     </ScrollView>
   );

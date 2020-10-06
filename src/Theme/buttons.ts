@@ -8,4 +8,15 @@ export const buttons = {
     height: styleGuid.sizes.large,
     width: '100%',
   },
+  disabled: {
+    backgroundColor: colors.disabled,
+    borderRadius: styleGuid.radii[1],
+    height: styleGuid.sizes.large,
+    width: '100%',
+  },
+  ghost: {
+    backgroundColor: 'transparent',
+    height: 'auto',
+    width: 'auto',
+  },
 };

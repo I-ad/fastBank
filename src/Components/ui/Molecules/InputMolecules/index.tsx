@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {MutableRefObject, useState} from 'react';
+import {TextInputProps} from 'react-native';
 import {BoxAtom} from '../../Atoms/BoxAtom';
 import {IconAtom} from '../../Atoms/IconAtom';
 import {InputAtom} from '../../Atoms/InputAtom';
@@ -14,7 +15,9 @@ interface IProps {
   errorMessage?: string;
   helpMessage?: string;
   mb?: number | string;
+  ref?: MutableRefObject<TextInputProps>;
   onFocus?(): void;
+  onBlur?(): void;
   onChange?(text: string): void;
 }
 
@@ -29,6 +32,8 @@ const InputMolecules: React.FC<IProps> = ({
   errorMessage,
   helpMessage,
   mb,
+  onBlur,
+  ref,
 }) => {
   const [focus, setFocus] = useState(!!autoFocus);
   const [HEIGHT, SET_HEIGHT] = useState(0);
@@ -39,6 +44,9 @@ const InputMolecules: React.FC<IProps> = ({
     setFocus(true);
   };
   const ON_BLUR = () => {
+    if (onBlur) {
+      onBlur();
+    }
     setFocus(false);
   };
   const onLayout = (e: any) => {
@@ -68,6 +76,7 @@ const InputMolecules: React.FC<IProps> = ({
           />
         )}
         <InputAtom
+          ref={ref}
           value={value}
           width={width}
           height={56}
@@ -85,12 +94,12 @@ const InputMolecules: React.FC<IProps> = ({
       </BoxAtom>
       {errorMessage && (
         <TextAtom ml={16} variant="help" color="danger">
-          Error Message
+          {errorMessage}
         </TextAtom>
       )}
       {helpMessage && (
         <TextAtom ml={16} variant="help">
-          Help Message
+          {helpMessage}
         </TextAtom>
       )}
     </BoxAtom>
