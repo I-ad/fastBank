@@ -12,9 +12,10 @@ import {
   typography,
   variant,
 } from 'styled-system';
+import lightTheme from '../../../../Theme/LightTheme';
 import {TextAtomType} from './interface';
 
-export const TextAtom: React.FunctionComponent<TextAtomType> = styled.Text`
+export const TextStyled: any = styled.Text`
   ${variant({prop: 'variant', key: 'typography'})}
   ${compose(
     textStyle,
@@ -27,3 +28,7 @@ export const TextAtom: React.FunctionComponent<TextAtomType> = styled.Text`
     layout,
   )};
 `;
+
+export const TextAtom: React.FC<TextAtomType> = (props) => (
+  <TextStyled {...props} theme={lightTheme} />
+);

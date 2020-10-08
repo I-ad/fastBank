@@ -1,18 +1,15 @@
 import React, {ReactElement} from 'react';
 import {InputMolecules} from './ui/Molecules';
+import {InputMoleculesType} from './ui/Molecules/InputMolecules';
 
 export const RenderInput: (
-  label: string,
-  leftIconName: string,
   errors: any,
-  mb?: number,
-) => (props: any) => ReactElement = (label, leftIconName, errors, mb) => {
+  inputProps?: InputMoleculesType,
+) => (props: any) => ReactElement = (errors, inputProps) => {
   return (props) => (
     <InputMolecules
       {...props}
-      label={label}
-      leftIconName={leftIconName}
-      mb={mb}
+      {...inputProps}
       errorMessage={
         !!errors &&
         (errors as any)[props.name] &&

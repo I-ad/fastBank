@@ -12,6 +12,7 @@ import {
   space,
   variant,
 } from 'styled-system';
+import lightTheme from '../../../../Theme/LightTheme';
 import {ButtonAtomType} from './interface';
 
 const ButtonStyled = styled.TouchableOpacity`
@@ -22,5 +23,5 @@ const ButtonStyled = styled.TouchableOpacity`
 `;
 
 export const ButtonAtom: React.FunctionComponent<ButtonAtomType> = (props) => (
-  <ButtonStyled {...props} />
+  <ButtonStyled testID="button-atom-test-id" {...props} theme={lightTheme} />
 );

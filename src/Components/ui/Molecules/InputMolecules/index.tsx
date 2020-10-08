@@ -6,22 +6,23 @@ import {InputAtom} from '../../Atoms/InputAtom';
 import {TextAtom} from '../../Atoms/TextAtom';
 import FloatingLabel from './FloatingLabel';
 
-interface IProps {
+export interface InputMoleculesType {
   width?: string | number;
   autoFocus?: boolean;
   value?: string;
   label?: string;
   leftIconName?: string;
-  errorMessage?: string;
-  helpMessage?: string;
+  errorMessage?: string | undefined;
+  helpMessage?: string | undefined;
   mb?: number | string;
   ref?: MutableRefObject<TextInputProps>;
+  keyboardType?: TextInputProps['keyboardType'];
   onFocus?(): void;
   onBlur?(): void;
   onChange?(text: string): void;
 }
 
-const InputMolecules: React.FC<IProps> = ({
+const InputMolecules: React.FC<InputMoleculesType> = ({
   width,
   onFocus,
   autoFocus,
@@ -34,6 +35,7 @@ const InputMolecules: React.FC<IProps> = ({
   mb,
   onBlur,
   ref,
+  keyboardType,
 }) => {
   const [focus, setFocus] = useState(!!autoFocus);
   const [HEIGHT, SET_HEIGHT] = useState(0);
@@ -90,14 +92,15 @@ const InputMolecules: React.FC<IProps> = ({
           onBlur={ON_BLUR}
           onChangeText={onChange}
           borderRadius={1}
+          keyboardType={keyboardType}
         />
       </BoxAtom>
-      {errorMessage && (
+      {!!errorMessage && (
         <TextAtom ml={16} variant="help" color="danger">
           {errorMessage}
         </TextAtom>
       )}
-      {helpMessage && (
+      {!!helpMessage && (
         <TextAtom ml={16} variant="help">
           {helpMessage}
         </TextAtom>

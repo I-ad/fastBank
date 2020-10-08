@@ -1,6 +1,7 @@
 import React, {forwardRef} from 'react';
 import {TextInputProps} from 'react-native';
 import styled from 'styled-components/native';
+import lightTheme from '../../../../Theme/LightTheme';
 import {InputAtomType} from './interface';
 import {
   border,
@@ -20,5 +21,5 @@ const InputStyled: any = styled.TextInput`
 `;
 
 export const InputAtom = forwardRef<TextInputProps, InputAtomType>(
-  (props, ref) => <InputStyled ref={ref} {...props} />,
+  (props, ref) => <InputStyled ref={ref} {...props} theme={lightTheme} />,
 );

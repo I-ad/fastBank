@@ -8,7 +8,7 @@ interface IconType {
 }
 
 export const RadioChecked: React.FC<IconType> = ({
-  color = '#000',
+  color = '#4662EB',
   width = 24,
 }: IconType) => {
   const strokeRatio = (width / 24) * 1.6;
@@ -32,7 +32,7 @@ export const RadioChecked: React.FC<IconType> = ({
 };
 
 export const RadioUnchecked: React.FC<IconType> = ({
-  color = '#000',
+  color = '#C7D2D9',
   width = 24,
 }) => {
   const strokeRatio = (width / 24) * 1.6;
