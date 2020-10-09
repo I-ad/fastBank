@@ -4,6 +4,7 @@ import CreatePasscodeContainer from './CreatePasscodeContainer';
 import VerifyPhoneContainer from './VerifyPhoneContainer';
 import PersonalInfoContainer from './PersonalInfoContainer';
 import AddressContainer from './AddressContainer';
+import ScanDocumentContainer from './ScanDocument';
 
 export {
   LogInContainer,
@@ -12,4 +13,5 @@ export {
   VerifyPhoneContainer,
   PersonalInfoContainer,
   AddressContainer,
+  ScanDocumentContainer,
 };

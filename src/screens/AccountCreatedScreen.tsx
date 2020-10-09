@@ -12,7 +12,7 @@ type IProps = {
 };
 
 const AccountCreatedScreen: React.FC<IProps> = ({navigation}) => {
-  const onPress = () => navigation.replace('');
+  const onPress = () => navigation.replace('ScanDocument');
   return (
     <ScrollViewWrapper>
       <BoxAtom alignSelf="center" mt={64} mb={6}>
@@ -25,7 +25,7 @@ const AccountCreatedScreen: React.FC<IProps> = ({navigation}) => {
         textAlign="center"
         maxWidth={246}
         alignSelf="center">
-        Your Account has Been Created
+        Your Account has Been Created!
       </TextAtom>
       <BoxAtom flex={1} />
       <BoxAtom px={4}>

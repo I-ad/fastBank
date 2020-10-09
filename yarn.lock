@@ -6105,6 +6105,11 @@ react-native-reanimated@^1.13.1:
   dependencies:
     fbjs "^1.0.0"
 
+react-native-rectangle-scanner@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/react-native-rectangle-scanner/-/react-native-rectangle-scanner-1.0.10.tgz#eddf201013030c12e9c74c893c3a7d7e229780fc"
+  integrity sha512-E9YdHMaRBYXen9wQHOrNa//nZyf2AUqpV+f7v1D3SNJJjuFmqEtxB1gx9qlJCE7ut/Osh7WRCYJL+wVoXQ7S/g==
+
 react-native-safe-area-context@^3.1.8:
   version "3.1.8"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.1.8.tgz#7a9883aa0f38f9c77d4bef2b89e4e285bc1024a3"

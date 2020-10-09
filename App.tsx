@@ -11,6 +11,7 @@ import {
   LogInContainer,
   PersonalInfoContainer,
   RegisterContainer,
+  ScanDocumentContainer,
   VerifyPhoneContainer,
 } from './src/Containers';
 import AccountCreatedScreen from './src/screens/AccountCreatedScreen';
@@ -30,6 +31,17 @@ const App = () => {
             <Stack.Navigator>
               <Stack.Screen
                 options={{headerShown: false}}
+                name="ScanDocument"
+                component={ScanDocumentContainer}
+              />
+              {/*todo if you want to the app start from beginning put Register first item*/}
+              <Stack.Screen
+                options={{headerShown: false}}
+                name="Register"
+                component={RegisterContainer}
+              />
+              <Stack.Screen
+                options={{headerShown: false}}
                 name="AccountCreated"
                 component={AccountCreatedScreen}
               />
@@ -37,11 +49,6 @@ const App = () => {
                 name="Address"
                 component={AddressContainer}
                 options={{headerShown: false}}
-              />
-              <Stack.Screen
-                options={{headerShown: false}}
-                name="Register"
-                component={RegisterContainer}
               />
               <Stack.Screen
                 options={{headerShown: false}}
