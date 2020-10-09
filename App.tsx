@@ -34,7 +34,6 @@ const App = () => {
                 name="ScanDocument"
                 component={ScanDocumentContainer}
               />
-              {/*todo if you want to the app start from beginning put Register first item*/}
               <Stack.Screen
                 options={{headerShown: false}}
                 name="Register"
