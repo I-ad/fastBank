@@ -6,10 +6,12 @@ import {ThemeProvider} from 'styled-components';
 import {AppProvider} from './src/AppContext';
 import {BoxAtom} from './src/Components/ui/Atoms/BoxAtom';
 import {
+  AccountVerifyContainer,
   AddressContainer,
   CreatePasscodeContainer,
   LogInContainer,
   PersonalInfoContainer,
+  PreviewLicenseContainer,
   RegisterContainer,
   ScanDocumentContainer,
   VerifyPhoneContainer,
@@ -31,8 +33,18 @@ const App = () => {
             <Stack.Navigator>
               <Stack.Screen
                 options={{headerShown: false}}
+                name="AccountVerifyContainer"
+                component={AccountVerifyContainer}
+              />
+              <Stack.Screen
+                options={{headerShown: false}}
                 name="ScanDocument"
                 component={ScanDocumentContainer}
+              />
+              <Stack.Screen
+                options={{headerShown: false}}
+                name="PicPath"
+                component={PreviewLicenseContainer}
               />
               <Stack.Screen
                 options={{headerShown: false}}

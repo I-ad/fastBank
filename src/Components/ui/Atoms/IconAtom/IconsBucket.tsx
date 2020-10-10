@@ -5,6 +5,8 @@ import {
   EmailIcon,
   PasswordIcon,
   PhoneIcon,
+  DoneIcon,
+  RightArrowIcon,
 } from './Icons';
 
 interface IconType {
@@ -49,4 +51,6 @@ IconsBucket.addIcon('EmailIcon', EmailIcon);
 IconsBucket.addIcon('PasswordIcon', PasswordIcon);
 IconsBucket.addIcon('PhoneIcon', PhoneIcon);
 IconsBucket.addIcon('CalendarIcon', CalendarIcon);
+IconsBucket.addIcon('DoneIcon', DoneIcon);
+IconsBucket.addIcon('RightArrowIcon', RightArrowIcon);
 export default IconsBucket;

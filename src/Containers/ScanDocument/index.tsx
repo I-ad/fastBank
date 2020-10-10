@@ -1,9 +1,11 @@
+import {StackNavigationProp} from '@react-navigation/stack';
 import React, {useState} from 'react';
-import {Image} from 'react-native';
+import RNFS from 'react-native-fs';
 import Scanner, {
   DetectedRectangle,
   RectangleOverlay,
 } from 'react-native-rectangle-scanner';
+import {AppContext, PIC_PATH_ADDED} from '../../AppContext';
 import {BoxAtom} from '../../Components/ui/Atoms/BoxAtom';
 import {ButtonAtom} from '../../Components/ui/Atoms/ButtonAtom';
 import {BoundersSvg} from './BoundersSvg';
@@ -60,15 +62,21 @@ type Rectangle = {
   };
 };
 
-const ScanDocumentContainer: React.FC = () => {
+type ProfileScreenNavigationProp = StackNavigationProp<any, 'Register'>;
+
+type IProps = {
+  navigation: ProfileScreenNavigationProp;
+};
+
+const ScanDocumentContainer: React.FC<IProps> = ({navigation}) => {
+  const {appDispatch} = React.useContext(AppContext);
   const cameraRef = React.useRef(null);
   const [detectedRectangle, setDetectedRectangle] = useState<any>(null);
   const [, setCard] = useState({width: 0, height: 0});
-  const [image, setImage] = useState<string>('');
 
-  const handleOnPictureProcessed = (item: {croppedImage: string}) => {
-    console.log(item);
-    setImage(item.croppedImage);
+  const handleOnPictureProcessed = async (item: {croppedImage: string}) => {
+    appDispatch({type: PIC_PATH_ADDED, payload: item.croppedImage});
+    navigation.replace('PicPath');
   };
 
   const onRectangleDetected = (items: {
@@ -85,20 +93,21 @@ const ScanDocumentContainer: React.FC = () => {
       });
     }
   };
-  const capture = () => {
-    (cameraRef as any).current.capture();
+  const capture = async () => {
+    await (cameraRef as any).current.capture();
   };
-  if (!!image) {
-    // try to find picture size,
-    return (
-      <BoxAtom flex={1} position="relative">
-        <Image
-          source={{uri: `file://${image}`}}
-          style={{width: 414, height: 414}}
-        />
-      </BoxAtom>
-    );
-  }
+
+  // if (!!image) {
+  //   return (
+  //     <BoxAtom flex={1} position="relative">
+  //       <Image
+  //         source={{uri: `file://${image}`}}
+  //         style={{flex: 1, width: 414}}
+  //         resizeMode="contain"
+  //       />
+  //     </BoxAtom>
+  //   );
+  // }
   return (
     <BoxAtom flex={1} position="relative">
       <Scanner
@@ -136,7 +145,7 @@ const ScanDocumentContainer: React.FC = () => {
       />
       <BoxAtom position="absolute" top={0} left={0} right={0} bottom={0}>
         <BoxAtom alignSelf="center" mt={140}>
-          <BoundersSvg />
+          <BoundersSvg width={382} />
         </BoxAtom>
       </BoxAtom>
       <ButtonAtom

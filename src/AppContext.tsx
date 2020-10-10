@@ -22,6 +22,8 @@ export interface IState {
     state: string;
     zipcode: string;
   } | null;
+  licensePicturePath: string | null;
+  driverLicenses: string | null;
 }
 
 interface IContextProps {
@@ -38,7 +40,8 @@ export const PASSCODE_CREATED = 'passcodeCreated';
 export const VERIFY_CODE_CREATED = 'createVerifyCode';
 export const PERSONAL_INFO_ADDED = 'personalInfoAdded';
 export const ADDRESS_ADDED = 'addressAdded';
-
+export const LICENSE_ADDED = 'licensesAdded';
+export const PIC_PATH_ADDED = 'picPathAdded';
 export const AppProvider: React.FC = ({children}) => {
   const reducer = (state: IState, {type, payload}: IAction) => {
     switch (type) {
@@ -52,6 +55,10 @@ export const AppProvider: React.FC = ({children}) => {
         return {...state, personalInfo: payload};
       case ADDRESS_ADDED:
         return {...state, address: payload};
+      case LICENSE_ADDED:
+        return {...state, driverLicenses: payload};
+      case PIC_PATH_ADDED:
+        return {...state, licensePicturePath: payload};
       default:
         return state;
     }
@@ -62,6 +69,8 @@ export const AppProvider: React.FC = ({children}) => {
     verifyCode: '',
     personalInfo: null,
     address: null,
+    driverLicenses: null,
+    licensePicturePath: null,
   });
   return (
     <AppContext.Provider value={{appData, appDispatch} as any}>
