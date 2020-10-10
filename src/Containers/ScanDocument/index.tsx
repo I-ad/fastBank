@@ -1,5 +1,5 @@
-import React from 'react';
-import Scanner from 'react-native-rectangle-scanner';
+import React, {useState} from 'react';
+import Scanner, {RectangleOverlay} from 'react-native-rectangle-scanner';
 
 // 0
 // :
@@ -33,18 +33,15 @@ import Scanner from 'react-native-rectangle-scanner';
 // target: 787
 
 const ScanDocumentContainer: React.FC = () => {
-  const timer: any = null;
   const cameraRef = React.useRef(null);
+  const [detectedRectangle, setDetectedRectangle] = useState<any>(null);
 
   const handleOnPictureProcessed = (...rest: any) => {
     console.log(rest);
   };
 
-  const onRectangleDetected = (...rest: any) => {
-    clearTimeout(timer);
-    setTimeout(() => {
-      console.log(rest);
-    }, 1000);
+  const onRectangleDetected = (items: {detectedRectangle: any}) => {
+    setDetectedRectangle(items.detectedRectangle);
   };
 
   return (
@@ -52,8 +49,18 @@ const ScanDocumentContainer: React.FC = () => {
       onPictureProcessed={handleOnPictureProcessed}
       onRectangleDetected={onRectangleDetected}
       ref={cameraRef}
-      style={{flex: 1}}
-    />
+      style={{flex: 1}}>
+      <RectangleOverlay
+        detectedRectangle={detectedRectangle}
+        backgroundColor="rgba(255,181,6, 0.2)"
+        borderColor="rgb(255,181,6)"
+        borderWidth={4}
+        detectedBackgroundColor="rgba(255,181,6, 0.3)"
+        detectedBorderWidth={6}
+        detectedBorderColor="rgb(255,218,124)"
+        allowDetection={true}
+      />
+    </Scanner>
   );
 };
 
