@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import Scanner, {RectangleOverlay} from 'react-native-rectangle-scanner';
+import {Dimensions} from 'react-native';
+import Scanner, {
+  DetectedRectangle,
+  RectangleOverlay,
+} from 'react-native-rectangle-scanner';
+import {BoxAtom} from '../../Components/ui/Atoms/BoxAtom';
+import {TextAtom} from '../../Components/ui/Atoms/TextAtom';
+import {BoundersSvg} from './BoundersSvg';
 
 // 0
 // :
@@ -32,24 +39,65 @@ import Scanner, {RectangleOverlay} from 'react-native-rectangle-scanner';
 // __proto__: Object
 // target: 787
 
+type Rectangle = {
+  detectedRectangle: {
+    topLeft: {
+      x: number;
+      y: number;
+    };
+    topRight: {
+      x: number;
+      y: number;
+    };
+    bottomRight: {
+      x: number;
+      y: number;
+    };
+    bottomLeft: {
+      x: number;
+      y: number;
+    };
+  };
+};
+
 const ScanDocumentContainer: React.FC = () => {
   const cameraRef = React.useRef(null);
   const [detectedRectangle, setDetectedRectangle] = useState<any>(null);
+  const [card, setCard] = useState({width: 0, height: 0});
 
   const handleOnPictureProcessed = (...rest: any) => {
     console.log(rest);
   };
 
-  const onRectangleDetected = (items: {detectedRectangle: any}) => {
+  const onRectangleDetected = (items: {
+    detectedRectangle: DetectedRectangle;
+  }) => {
     setDetectedRectangle(items.detectedRectangle);
+    if (items && items.detectedRectangle) {
+      const {topLeft, topRight, bottomLeft} = items.detectedRectangle;
+      const dimensions = Dimensions.get('window');
+      const width = topRight.x - topLeft.x;
+      const height = bottomLeft.y - topLeft.y;
+      if (dimensions.height > dimensions.width) {
+        // Portrait
+      } else {
+        setCard({
+          width,
+          height,
+        });
+      }
+    }
   };
 
   return (
-    <Scanner
-      onPictureProcessed={handleOnPictureProcessed}
-      onRectangleDetected={onRectangleDetected}
-      ref={cameraRef}
-      style={{flex: 1}}>
+    <BoxAtom flex={1} position="relative">
+      <Scanner
+        onPictureProcessed={handleOnPictureProcessed}
+        onRectangleDetected={onRectangleDetected}
+        ref={cameraRef}
+        style={{flex: 1}}
+        enableTorch={true}
+      />
       <RectangleOverlay
         detectedRectangle={detectedRectangle}
         backgroundColor="rgba(255,181,6, 0.2)"
@@ -60,7 +108,18 @@ const ScanDocumentContainer: React.FC = () => {
         detectedBorderColor="rgb(255,218,124)"
         allowDetection={true}
       />
-    </Scanner>
+      <BoxAtom position="absolute" top={0} left={0} right={0} bottom={0}>
+        <BoxAtom alignSelf="center" mt={140}>
+          <BoundersSvg />
+        </BoxAtom>
+        <TextAtom
+          variant="heading2"
+          color="#FFF">{`width: ${card.width}`}</TextAtom>
+        <TextAtom
+          variant="heading2"
+          color="#FFF">{`height: ${card.height}`}</TextAtom>
+      </BoxAtom>
+    </BoxAtom>
   );
 };
 
