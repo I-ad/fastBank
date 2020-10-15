@@ -1,6 +1,6 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
-import {Image, SafeAreaView} from 'react-native';
+import {Image, Platform, SafeAreaView} from 'react-native';
 import RNFS from 'react-native-fs';
 import {AppContext, LICENSE_ADDED} from '../AppContext';
 import {BoxAtom, ButtonMolecules} from '../Components';
@@ -15,7 +15,9 @@ const PreviewLicenseContainer: React.FC<IProps> = ({navigation}) => {
   const {appData, appDispatch} = React.useContext(AppContext);
   const addPicture = async () => {
     const base64data = await RNFS.readFile(
-      `file://${appData.licensePicturePath}`,
+      Platform.OS === 'ios'
+        ? `file://${appData.licensePicturePath}`
+        : appData.licensePicturePath || '',
       'base64',
     ).then();
     if (base64data) {
@@ -29,7 +31,12 @@ const PreviewLicenseContainer: React.FC<IProps> = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <Image
-        source={{uri: `file:${appData.licensePicturePath}`}}
+        source={{
+          uri:
+            Platform.OS === 'ios'
+              ? `file:${appData.licensePicturePath}`
+              : appData.licensePicturePath || '',
+        }}
         style={{flex: 1, width: 414}}
         resizeMode="contain"
       />
