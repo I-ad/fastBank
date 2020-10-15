@@ -12,7 +12,7 @@ type IProps = {
 };
 
 const AccountCreatedScreen: React.FC<IProps> = ({navigation}) => {
-  const onPress = () => navigation.replace('ScanDocument');
+  const onPress = () => navigation.replace('AccountVerifyContainer');
   return (
     <ScrollViewWrapper>
       <BoxAtom alignSelf="center" mt={64} mb={6}>

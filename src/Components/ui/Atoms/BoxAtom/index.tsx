@@ -13,14 +13,14 @@ import {
   variant,
 } from 'styled-system';
 import lightTheme from '../../../../Theme/LightTheme';
-import {BoxAtomType} from './interface';
-
 export const BoxStyled: any = styled.View`
   margin: 0;
   min-width: 0;
   ${variant({prop: 'variant', key: 'boxes'})}
   ${compose(color, space, flexbox, position, layout, shadow, grid, border)};
 `;
+
+import {BoxAtomType} from './interface';
 
 export const BoxAtom: React.FC<BoxAtomType> = (props) => (
   <BoxStyled {...props} theme={lightTheme} />

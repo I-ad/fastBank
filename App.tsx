@@ -33,6 +33,11 @@ const App = () => {
             <Stack.Navigator>
               <Stack.Screen
                 options={{headerShown: false}}
+                name="Register"
+                component={RegisterContainer}
+              />
+              <Stack.Screen
+                options={{headerShown: false}}
                 name="AccountVerifyContainer"
                 component={AccountVerifyContainer}
               />
@@ -45,11 +50,6 @@ const App = () => {
                 options={{headerShown: false}}
                 name="PicPath"
                 component={PreviewLicenseContainer}
-              />
-              <Stack.Screen
-                options={{headerShown: false}}
-                name="Register"
-                component={RegisterContainer}
               />
               <Stack.Screen
                 options={{headerShown: false}}

@@ -67,6 +67,8 @@ const AddressContainer: React.FC<IProps> = ({navigation}) => {
       state: string().required('Required'),
       zipcode: string()
         .required('Required')
+        .min(5, 'Invalid Zipcode')
+        .max(5, 'Invalid Zipcode')
         .matches(zipcodeRegex, 'Invalid Zipcode'),
     }),
   });
@@ -125,6 +127,7 @@ const AddressContainer: React.FC<IProps> = ({navigation}) => {
             errorMessage={
               errors.zipcode && touched.zipcode ? errors.zipcode : ''
             }
+            keyboardType="number-pad"
           />
         </BoxAtom>
         <BoxAtom flex={1} />

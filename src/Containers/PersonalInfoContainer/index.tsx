@@ -123,6 +123,7 @@ const PersonalInfoContainer: React.FC<IProps> = ({navigation}) => {
             }
             helpMessage="e.g. MM/DD/YYYY"
             mb={3}
+            keyboardType="number-pad"
           />
         </BoxAtom>
         <BoxAtom px={4}>
